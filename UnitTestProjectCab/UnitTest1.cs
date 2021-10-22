@@ -37,7 +37,39 @@ namespace UnitTestProjectCab
             InvoiceSummary expected = new InvoiceSummary(2, 60.0);
             Assert.AreEqual(expected, actual);
         }
+        //Uc3 given multiple rides should show total no of rides, total fare, average fare per ride
+        //Uc3 given multiple rides should return average fare
+        [TestMethod]
+        public void Return_AverageFare()
+        {
+            InvoiceGenerator invoice = new InvoiceGenerator(RideType.NORMAL);
+            Ride[] rides = { new Ride(3.0, 5), new Ride(0.1, 1) };
+            InvoiceSummary summary = new InvoiceSummary(2, 40.0);
+            InvoiceSummary expected = invoice.CalculateFare(rides);
+            Assert.AreEqual(summary.averageFare, expected.averageFare);
+        }
+        //Uc3 given multiple rides should returns number of rides 
+        [TestMethod]
+        public void Return_NumofRides()
+        {
+            InvoiceGenerator invoice = new InvoiceGenerator(RideType.NORMAL);
+            Ride[] rides = { new Ride(3.0, 5), new Ride(0.1, 1) };
+
+            InvoiceSummary summary = new InvoiceSummary(2, 40.0);
+            InvoiceSummary expected = invoice.CalculateFare(rides);
+            Assert.AreEqual(summary.numberOfRides, expected.numberOfRides);
+        }
+
+        //Uc3 given multiple rides should returns Total fare
+        [TestMethod]
+        public void Return_TotalFare()
+        {
+            InvoiceGenerator invoice = new InvoiceGenerator(RideType.NORMAL);
+            Ride[] rides = { new Ride(3.0, 5), new Ride(0.1, 1) };
+
+            InvoiceSummary summary = new InvoiceSummary(2, 40.0);
+            InvoiceSummary expected = invoice.CalculateFare(rides);
+            Assert.AreEqual(summary.totalFare, expected.totalFare);
+        }
     }
 }
-        
-    

@@ -11,9 +11,9 @@ namespace CabInvoiceGenerator
 
     {
         //Decalring variables
-        private int numberOfRides;
-        private double totalFare;
-        private double averageFare;
+        public int numberOfRides;
+        public double totalFare;
+        public double averageFare;
 
         //Parameterized Constructor
         public InvoiceSummary(int numberOfRides, double totalFare)
